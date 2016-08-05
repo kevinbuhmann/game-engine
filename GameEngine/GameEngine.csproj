@@ -43,12 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEngine.cs" />
+    <Compile Include="General\IGame.cs" />
+    <Compile Include="General\IPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicTacToe\Players\TicTacToeStrategyPlayer.cs" />
+    <Compile Include="TicTacToe\TicTacToeBoard.cs" />
+    <Compile Include="TicTacToe\TicTacToeGame.cs" />
+    <Compile Include="TicTacToe\TicTacToeGameState.cs" />
+    <Compile Include="TicTacToe\TicTacToeMove.cs" />
+    <Compile Include="TicTacToe\TicTacToeBoardValue.cs" />
+    <Compile Include="TicTacToe\Players\TicTacToeRandomPlayer.cs" />
+    <Compile Include="TicTacToe\TicTacToePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
