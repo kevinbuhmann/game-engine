@@ -37,28 +37,28 @@ namespace GameEngine.TicTacToe.Players
                             .OrderByDescending(move => move.Y < selectedMove.Y)
                             .ThenByDescending(move => move.X == selectedMove.X)
                             .ThenByDescending(move => move.Y)
-                            .FirstOrDefault() ?? selectedMove;
+                            .First();
                         break;
                     case ConsoleKey.DownArrow:
                         selectedMove = openMoves
                             .OrderByDescending(move => move.Y > selectedMove.Y)
                             .ThenByDescending(move => move.X == selectedMove.X)
                             .ThenBy(move => move.Y)
-                            .FirstOrDefault() ?? selectedMove;
+                            .First();
                         break;
                     case ConsoleKey.LeftArrow:
                         selectedMove = openMoves
                             .OrderByDescending(move => move.X < selectedMove.X)
                             .ThenByDescending(move => move.Y == selectedMove.Y)
                             .ThenByDescending(move => move.X)
-                            .FirstOrDefault() ?? selectedMove;
+                            .First();
                         break;
                     case ConsoleKey.RightArrow:
                         selectedMove = openMoves
                             .OrderByDescending(move => move.X > selectedMove.X)
                             .ThenByDescending(move => move.Y == selectedMove.Y)
                             .ThenBy(move => move.X)
-                            .FirstOrDefault() ?? selectedMove;
+                            .First();
                         break;
                     case ConsoleKey.Enter:
                         Console.Clear();
