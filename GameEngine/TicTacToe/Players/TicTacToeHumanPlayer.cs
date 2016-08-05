@@ -34,29 +34,29 @@ namespace GameEngine.TicTacToe.Players
                 {
                     case ConsoleKey.UpArrow:
                         selectedMove = openMoves
-                            .Where(move => move.Y < selectedMove.Y)
-                            .OrderByDescending(move => move.X == selectedMove.X)
+                            .OrderByDescending(move => move.Y < selectedMove.Y)
+                            .ThenByDescending(move => move.X == selectedMove.X)
                             .ThenByDescending(move => move.Y)
                             .FirstOrDefault() ?? selectedMove;
                         break;
                     case ConsoleKey.DownArrow:
                         selectedMove = openMoves
-                            .Where(move => move.Y > selectedMove.Y)
-                            .OrderByDescending(move => move.X == selectedMove.X)
+                            .OrderByDescending(move => move.Y > selectedMove.Y)
+                            .ThenByDescending(move => move.X == selectedMove.X)
                             .ThenBy(move => move.Y)
                             .FirstOrDefault() ?? selectedMove;
                         break;
                     case ConsoleKey.LeftArrow:
                         selectedMove = openMoves
-                            .Where(move => move.X < selectedMove.X)
-                            .OrderByDescending(move => move.Y == selectedMove.Y)
+                            .OrderByDescending(move => move.X < selectedMove.X)
+                            .ThenByDescending(move => move.Y == selectedMove.Y)
                             .ThenByDescending(move => move.X)
                             .FirstOrDefault() ?? selectedMove;
                         break;
                     case ConsoleKey.RightArrow:
                         selectedMove = openMoves
-                            .Where(move => move.X > selectedMove.X)
-                            .OrderByDescending(move => move.Y == selectedMove.Y)
+                            .OrderByDescending(move => move.X > selectedMove.X)
+                            .ThenByDescending(move => move.Y == selectedMove.Y)
                             .ThenBy(move => move.X)
                             .FirstOrDefault() ?? selectedMove;
                         break;
