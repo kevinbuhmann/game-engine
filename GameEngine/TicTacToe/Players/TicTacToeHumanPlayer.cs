@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GameEngine.TicTacToe.Players
 {
-    public class TicTacToeHumanPlayer : TicTacToeRandomPlayer
+    public class TicTacToeHumanPlayer : TicTacToePlayer
     {
         public TicTacToeHumanPlayer(TicTacToeBoardValue boardValue)
             : base(boardValue)
