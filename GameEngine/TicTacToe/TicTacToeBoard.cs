@@ -46,9 +46,9 @@ namespace GameEngine.TicTacToe
         {
             List<TicTacToeMove> openMoves = new List<TicTacToeMove>();
 
-            for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 3; y++)
             {
-                for (int y = 0; y < 3; y++)
+                for (int x = 0; x < 3; x++)
                 {
                     TicTacToeMove move = new TicTacToeMove(x, y);
                     if (this.IsValidMove(move))
@@ -111,21 +111,21 @@ namespace GameEngine.TicTacToe
 
         public void Print()
         {
-            for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 3; y++)
             {
                 Console.Write(" ");
-                for (int y = 0; y < 3; y++)
+                for (int x = 0; x < 3; x++)
                 {
-                    Console.Write(this.values[x, y]?.ToString() ?? " ");
+                    Console.Write($"{this.values[x, y]?.ToString() ?? "_"}");
 
-                    if (y < 2)
+                    if (x < 2)
                     {
                         Console.Write(" | ");
                     }
                 }
                 Console.WriteLine();
 
-                if (x < 2)
+                if (y < 2)
                 {
                     Console.WriteLine("-----------");
                 }

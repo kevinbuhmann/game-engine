@@ -8,17 +8,24 @@ namespace GameEngine
     {
         public static void Main(string[] args)
         {
-            TicTacToeStrategyPlayer player1 = new TicTacToeStrategyPlayer(TicTacToeBoardValue.X);
-            TicTacToeRandomPlayer player2 = new TicTacToeRandomPlayer(TicTacToeBoardValue.O);
+            TicTacToePlayer player1 = new TicTacToeHumanPlayer(TicTacToeBoardValue.X);
+            TicTacToePlayer player2 = new TicTacToeStrategyPlayer(TicTacToeBoardValue.O);
 
             TicTacToeGame game = new TicTacToeGame(player1, player2);
 
-            //GameEngine<TicTacToeGame, TicTacToeRandomPlayer, TicTacToeGameState, TicTacToeMove>.Run(game);
-            GameEngine<TicTacToeGame, TicTacToeRandomPlayer, TicTacToeGameState, TicTacToeMove>.RunMany(game, 1000);
+            //GameEngine<TicTacToeGame, TicTacToePlayer, TicTacToeGameState, TicTacToeMove>.RunMany(game, 10000);
+            //Console.ReadKey();
 
-            Console.WriteLine();
-            Console.Write("Press any key to continue...");
-            Console.ReadKey();
+            ConsoleKey key;
+            do
+            {
+                GameEngine<TicTacToeGame, TicTacToePlayer, TicTacToeGameState, TicTacToeMove>.Run(game);
+                game.Reset();
+
+                Console.WriteLine();
+                Console.Write("Press any key to play again or escape to exit...");
+                key = Console.ReadKey().Key;
+            } while (key != ConsoleKey.Escape);
         }
     }
 }

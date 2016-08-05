@@ -1,6 +1,7 @@
 ﻿using GameEngine.General;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GameEngine
 {
@@ -70,14 +71,14 @@ namespace GameEngine
                 strategyWinTracker[strategy]++;
             }
 
-            foreach (string winnerName in playerWinTracker.Keys)
+            foreach (string winnerName in playerWinTracker.Keys.OrderByDescending(key => key))
             {
                 Console.WriteLine($"Player {winnerName} won {playerWinTracker[winnerName]} games.");
             }
 
             Console.WriteLine();
 
-            foreach (string stategy in strategyWinTracker.Keys)
+            foreach (string stategy in strategyWinTracker.Keys.OrderBy(key => key))
             {
                 Console.WriteLine($"Strategy {stategy} won {strategyWinTracker[stategy]} games.");
             }
