@@ -13,11 +13,6 @@ namespace GameEngine.TicTacToe.Players
 
         public override TicTacToeMove NextMove(TicTacToeGameState gameState)
         {
-            if (gameState.Board.IsFull())
-            {
-                return null;
-            }
-
             // Can I win?
             TicTacToeMove winningMove = this.CheckForWin(gameState, this.BoardValue);
 
@@ -34,7 +29,6 @@ namespace GameEngine.TicTacToe.Players
                 new TicTacToeMove(2, 0),
                 new TicTacToeMove(2, 2)
             }.OrderBy(move => Guid.NewGuid()).FirstOrDefault(move => gameState.Board.IsValidMove(move));
-
 
             // play best move
             return winningMove ?? blockingMove ?? cornerMove ?? base.NextMove(gameState);

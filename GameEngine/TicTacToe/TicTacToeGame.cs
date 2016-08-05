@@ -7,28 +7,28 @@ using System.Linq;
 
 namespace GameEngine.TicTacToe
 {
-    public class TicTacToeGame : IGame<TicTacToeRandomPlayer, TicTacToeGameState, TicTacToeMove>
+    public class TicTacToeGame : IGame<TicTacToePlayer, TicTacToeGameState, TicTacToeMove>
     {
         private TicTacToeBoard board = new TicTacToeBoard();
 
-        public TicTacToeGame(TicTacToeRandomPlayer player1, TicTacToeRandomPlayer player2)
+        public TicTacToeGame(TicTacToePlayer player1, TicTacToePlayer player2)
         {
             if (player1.BoardValue == player2.BoardValue)
             {
                 throw new Exception("players cannot have the same board value");
             }
 
-            this.Players = new ReadOnlyCollection<TicTacToeRandomPlayer>(new List<TicTacToeRandomPlayer>() { player1, player2 });
+            this.Players = new ReadOnlyCollection<TicTacToePlayer>(new List<TicTacToePlayer>() { player1, player2 });
         }
 
-        public IEnumerable<TicTacToeRandomPlayer> Players { get; }
+        public IEnumerable<TicTacToePlayer> Players { get; }
 
         public TicTacToeGameState GetCurrentGameState()
         {
             return new TicTacToeGameState(board);
         }
 
-        public bool MakeMove(TicTacToeRandomPlayer player, TicTacToeMove move)
+        public bool MakeMove(TicTacToePlayer player, TicTacToeMove move)
         {
             return this.board.MakeMove(move, player.BoardValue);
         }
@@ -38,7 +38,7 @@ namespace GameEngine.TicTacToe
             return this.board.IsFull() || this.board.CheckForWinner() != null;
         }
 
-        public TicTacToeRandomPlayer GetWinner()
+        public TicTacToePlayer GetWinner()
         {
             TicTacToeBoardValue? winner = this.board.CheckForWinner();
             return winner != null ? this.Players.First(p => p.BoardValue == winner.Value) : null;
